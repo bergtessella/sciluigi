@@ -11,6 +11,7 @@ import sciluigi.audit
 import sciluigi.interface
 import sciluigi.dependencies
 import sciluigi.slurm
+import tempfile
 
 log = logging.getLogger('sciluigi-interface')
 
@@ -45,7 +46,8 @@ class WorkflowTask(sciluigi.audit.AuditTrailHelpers, luigi.Task):
         if self._wflogpath == '':
             self._ensure_timestamp()
             clsname = self.__class__.__name__.lower()
-            logpath = 'log/workflow_' + clsname + '_started_{t}.log'.format(t=self._wfstart)
+            log_root = tempfile.gettempdir()
+            logpath = log_root + '/workflow_' + clsname + '_started_{t}.log'.format(t=self._wfstart)
             self._wflogpath = logpath
         return self._wflogpath
 

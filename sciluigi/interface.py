@@ -3,6 +3,7 @@ This module contains mappings of methods that are part of the sciluigi API
 '''
 
 import luigi
+import tempfile
 import logging
 import sciluigi.util
 
@@ -15,8 +16,8 @@ def setup_logging():
     '''
     Set up SciLuigi specific logging
     '''
-    sciluigi.util.ensuredir('log')
-    log_path = 'log/sciluigi_run_%s_detailed.log' % sciluigi.util.timepath()
+    log_root = tempfile.gettempdir()
+    log_path = '%s/sciluigi_run_%s_detailed.log' % (log_root, sciluigi.util.timepath())
 
     # Formatter
     stream_formatter = logging.Formatter(LOGFMT_STREAM, DATEFMT)
