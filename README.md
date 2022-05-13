@@ -2,6 +2,7 @@
 
 ## Project updates
 
+* ***Fork May 2022***: Version tagged as 0.9.10 pushes log output to temp folder
 * ***Update May 27, 2020***: Version 0.9.7 is released, and should work well
   with Python 3.8 and Luigi 2.8. Please [report any issues](https://github.com/pharmbio/sciluigi)!
 * ***A paper with the motivation and design decisions behind SciLuigi [now available](http://dx.doi.org/10.1186/s13321-016-0179-6)***
